@@ -1,0 +1,13 @@
+RuleGroup,PropertyName,Operator,Value,AccessPackageId,PolicyId
+1,userType,eq,public,a3d17c64-e9b2-4f81-a7c3-5b92d8e14f6a,b7f42e91-3c8d-4a56-9e12-d4a87b3c61f5
+1,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department,eq,Sales,a3d17c64-e9b2-4f81-a7c3-5b92d8e14f6a,b7f42e91-3c8d-4a56-9e12-d4a87b3c61f5
+2,userType,eq,partner,a3d17c64-e9b2-4f81-a7c3-5b92d8e14f6a,b7f42e91-3c8d-4a56-9e12-d4a87b3c61f5
+2,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department,eq,Sales,a3d17c64-e9b2-4f81-a7c3-5b92d8e14f6a,b7f42e91-3c8d-4a56-9e12-d4a87b3c61f5
+3,userType,eq,public,c8e53a21-7d4f-4b93-ae68-f1d29c7b84e2,e5a91d37-6b2c-48f4-8d15-a3c76e4f92b8
+3,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department,eq,Legal,c8e53a21-7d4f-4b93-ae68-f1d29c7b84e2,e5a91d37-6b2c-48f4-8d15-a3c76e4f92b8
+4,userType,eq,partner,c8e53a21-7d4f-4b93-ae68-f1d29c7b84e2,e5a91d37-6b2c-48f4-8d15-a3c76e4f92b8
+4,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department,eq,Legal,c8e53a21-7d4f-4b93-ae68-f1d29c7b84e2,e5a91d37-6b2c-48f4-8d15-a3c76e4f92b8
+5,userType,eq,employee,a3d17c64-e9b2-4f81-a7c3-5b92d8e14f6a,f2b84d16-9e3a-4c71-b528-7d6e1a3f85c4
+5,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department,eq,Sales,a3d17c64-e9b2-4f81-a7c3-5b92d8e14f6a,f2b84d16-9e3a-4c71-b528-7d6e1a3f85c4
+6,userType,eq,employee,c8e53a21-7d4f-4b93-ae68-f1d29c7b84e2,d9c47e53-2a8f-4d16-b3e7-8f1a5c29d4b6
+6,urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department,eq,Legal,c8e53a21-7d4f-4b93-ae68-f1d29c7b84e2,a1e63b28-4d7f-4952-8c39-6b2d7e4f18a3
