@@ -410,7 +410,7 @@ foreach ($status in @('uncorrelated', 'correlatedNotAssigned', 'correlatedAssign
 Write-Host "`n=== Step 3a: Retrieving correlatedNotAssigned identities ===" -ForegroundColor Cyan
 
 $filterUri = "${baseIdentitiesUri}?`$filter=status eq 'correlatedNotAssigned'"
-$rawUnassigned = Get-AllPages -Uri $filterUri
+$rawUnassigned = @(Get-AllPages -Uri $filterUri)
 
 # Verify actual status — the API $filter may return extra identities
 $unassignedIdentities = @($rawUnassigned | Where-Object { $_.status -eq 'correlatedNotAssigned' })
@@ -432,7 +432,7 @@ else {
 Write-Host "`n=== Step 3b: Retrieving correlatedAssigned identities ===" -ForegroundColor Cyan
 
 $assignedFilterUri = "${baseIdentitiesUri}?`$filter=status eq 'correlatedAssigned'"
-$rawAssigned = Get-AllPages -Uri $assignedFilterUri
+$rawAssigned = @(Get-AllPages -Uri $assignedFilterUri)
 
 # Verify actual status client-side
 $assignedIdentities = @($rawAssigned | Where-Object { $_.status -eq 'correlatedAssigned' })
