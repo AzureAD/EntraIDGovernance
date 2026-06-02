@@ -175,9 +175,11 @@ function Get-AllPages {
 
 function Get-IdentityUserId {
     param([Parameter(Mandatory)]$Identity)
-    $uid = $Identity.sourceIdentity.anchor.value
-    if (-not $uid) { $uid = $Identity.sourceIdentity.id }
-    if (-not $uid) { $uid = $Identity.id }
+    $sourceIdentity = $Identity['sourceIdentity']
+    $anchor = if ($sourceIdentity) { $sourceIdentity['anchor'] } else { $null }
+    $uid = if ($anchor) { $anchor['value'] } else { $null }
+    if (-not $uid -and $sourceIdentity) { $uid = $sourceIdentity['id'] }
+    if (-not $uid) { $uid = $Identity['id'] }
     return $uid
 }
 
@@ -188,15 +190,18 @@ function Get-IdentityDisplayName {
     if ($props -and $props.ContainsKey('displayName')) {
         return ($props['displayName'] | Select-Object -First 1)
     }
-    $dn = $Identity.sourceIdentity.displayName
-    if (-not $dn) { $dn = $Identity.displayName }
+    $sourceIdentity = $Identity['sourceIdentity']
+    $dn = if ($sourceIdentity) { $sourceIdentity['displayName'] } else { $null }
+    if (-not $dn) { $dn = $Identity['displayName'] }
     if (-not $dn) { $dn = Get-IdentityUserId -Identity $Identity }
     return $dn
 }
 
 function Get-TargetProperties {
     param([Parameter(Mandatory)]$Identity)
-    $raw = $Identity.targetIdentity.details.Properties
+    $targetIdentity = $Identity['targetIdentity']
+    $details = if ($targetIdentity) { $targetIdentity['details'] } else { $null }
+    $raw = if ($details) { $details['Properties'] } else { $null }
     if (-not $raw) { return @{} }
     try { return ($raw | ConvertFrom-Json -AsHashtable) }
     catch { return @{} }
